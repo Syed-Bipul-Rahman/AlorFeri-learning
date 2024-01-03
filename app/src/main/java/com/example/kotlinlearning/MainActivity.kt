@@ -1,5 +1,6 @@
 package com.example.kotlinlearning
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -23,9 +24,11 @@ class MainActivity : AppCompatActivity() {
                     .show()
 
             } else {
-                userName = "you typed : " + userName
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("userName", userName)
+                startActivity(intent)
 
-                Toast.makeText(this, userName, Toast.LENGTH_LONG).show()
+
             }
 
         }
