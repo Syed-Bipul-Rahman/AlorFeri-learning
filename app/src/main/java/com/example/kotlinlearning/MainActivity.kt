@@ -15,17 +15,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.textview.text = "Hallo ich bin bipul, Ich komme aus dinajpur";
+        binding.textview.text = "Type your age to start your journey ";
 
         binding.button.setOnClickListener {
-            var userName: String = binding.edtext.text.toString()
-            if (userName.equals("")) {
-                Toast.makeText(this, "please type something and try again", Toast.LENGTH_LONG)
+            var ageString: String = binding.edtext.text.toString()
+            if (ageString.equals("")) {
+                Toast.makeText(this, "please type your and try again", Toast.LENGTH_LONG)
                     .show()
 
             } else {
+                //convert string to int value for perform operation
+                var age = ageString.toInt()
+                //checking user age to set welcome message
+                val welcomeMessage = when {
+                    age <= 17 -> "Your are child now"
+                    age >= 18 -> "Welcome to our app"
+                    age > 80 -> "you are too old to use our app"
+                    else -> "Opps! something wrong"
+                }
+
+
                 val intent = Intent(this, SecondActivity::class.java)
-                intent.putExtra("userName", userName)
+                intent.putExtra("message", welcomeMessage)
                 startActivity(intent)
 
 

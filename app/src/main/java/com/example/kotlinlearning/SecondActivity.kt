@@ -12,9 +12,8 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val messageRecive: String? = intent.getStringExtra("userName")
+        val messageRecive: String? = intent.getStringExtra("message")
         binding.textView.text = messageRecive
-
 
 
     }
