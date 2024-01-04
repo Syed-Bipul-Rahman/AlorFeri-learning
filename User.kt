@@ -1,0 +1,1 @@
+data class User (name:String?, age:Int?, email:String?)
